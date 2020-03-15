@@ -11,9 +11,8 @@ before_action :check_for_login
   end
 
   def create
-    @post = Post.new post_params
-    @users = User.all
-    post.save
+    @post = Post.create post_params
+    @current_user.posts << post
     redirect_to post
   end
 
@@ -32,6 +31,11 @@ before_action :check_for_login
     @comments = Comment.all
   end
 
+  def destroy
+    post = Post.find params[:id]
+    post.destroy
+    redirect_to posts_path
+  end
 
 
 

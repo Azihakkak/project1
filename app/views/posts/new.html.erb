@@ -2,7 +2,7 @@
 
 <p>Share your thoughts</p>
 
-<%= form_tag new_post_path do %>
+<%= form_tag @post do %>
   <fieldset>
     <%= label_tag :content %>
     <%= text_field_tag :content %>
