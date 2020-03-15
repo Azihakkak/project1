@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   root :to => 'pages#home'
   resources :users, :only => [:new, :create]
 
@@ -6,7 +7,7 @@ Rails.application.routes.draw do
   post '/login' => 'session#create'
   delete '/login' => 'session#destroy'
 
-  resources :posts, :only => [:new, :create, :destroy]
-  resources :comments, :only => [:new, :create, :destroy]
+  resources :posts
+  resources :comments
 
 end

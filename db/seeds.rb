@@ -1,7 +1,7 @@
 User.destroy_all
-u1 = User.create :email => 'azi@ga.co', :password => 'chicken'
-u2 = User.create :email => 'josh@gmail.com', :password => 'chiken'
-u3 = User.create :email => 'mitch@gmail.com', :password => 'chicken'
+u1 = User.create :email => 'azi@ga.co', :password => 'chicken', :name => 'Azi', :location => 'Sydney-Australia', :img => 'https://www.iconninja.com/files/659/862/369/owl-icon.png'
+u2 = User.create :email => 'josh@gmail.com', :password => 'chiken', :name => 'Josh', :location => 'Sydney-Australia', :img => 'https://i.pinimg.com/originals/6b/98/fe/6b98fe4a78e50a37f245932633771bb1.jpg'
+u3 = User.create :email => 'mitch@gmail.com', :password => 'chicken', :name => 'Mitch', :location => 'Sydney-Australia', :img => 'https://image.freepik.com/foto-gratis/hermosa-textura-colorida-pintura-pared-fondo-abstracto-textura-pintura-pared_24076-192.jpg'
 puts "#{ User.count } users created."
 
 Post.destroy_all
