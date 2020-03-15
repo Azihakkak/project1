@@ -1,0 +1,29 @@
+<h1><%= @post.user.name %> Posts</h1>
+
+<%= image_tag @post.user.img, :class => 'profile_pic', :alt => @post.user.name %>
+<div>
+  <%= @post.user.name %>
+</div>
+
+
+<ul>
+  <li>
+    <%= image_tag @post.img %>
+  </li>
+  <li>
+    <%= @post.content %>
+  </li>
+</ul>
+<%= form_tag @post  %>
+<fieldset>
+  <%= label_tag :comment %>
+  <%= text_field_tag :comment %>
+</fieldset>
+<%= submit_tag "Done" %>
+
+
+
+<div class="controls">
+  <%= link_to "Edit post", edit_post_path(@post) %>
+  <%= link_to "Delete post", @post, :method => 'delete', :data => { :confirm => 'Are you sure?' } %>
+</div>

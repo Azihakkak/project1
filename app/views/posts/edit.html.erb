@@ -1,0 +1,9 @@
+<h2>Edit Post</h2>
+
+<%= form_for @post do |f| %>
+  <%= image_tag @post.img %>
+  <%= f.text_field :content, :autofocus => true, :required => true %>
+  <%= f.label :img %>
+  <%= f.url_field :img %>
+  <%= f.submit :save %>
+<% end %>

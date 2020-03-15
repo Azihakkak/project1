@@ -1,6 +1,8 @@
 <h2>All posts</h2>
 
-<% @posts.each do |post| %>
+<%= @posts.each do |post| %>
 <%= link_to image_tag(post.img, :class => 'thumb', :alt => post.content), post %>
-<p><%= @user %></p><p><%= post.content %></p>
+<%= image_tag post.user.img %>
+<p><%= post.user.name %></p>
+<p><%= post.content %></p>
 <% end %>

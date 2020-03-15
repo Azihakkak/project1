@@ -1,2 +1,17 @@
-<h1>Posts#new</h1>
-<p>Find me in app/views/posts/new.html.erb</p>
+<h1>New Post</h1>
+
+<p>Share your thoughts</p>
+
+<%= form_tag new_post_path do %>
+  <fieldset>
+    <%= label_tag :content %>
+    <%= text_field_tag :content %>
+  </fieldset>
+
+  <fieldset>
+    <%= label_tag :img %>
+    <%= url_field_tag :img %>
+  </fieldset>
+
+  <%= submit_tag "Post" %>
+<% end %>
