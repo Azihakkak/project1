@@ -28,7 +28,7 @@ before_action :check_for_login
 
   def show
     @post = Post.find params[:id]
-    @comments = Comment.all
+    @comments = @post.comments
   end
 
   def destroy
