@@ -10,14 +10,18 @@
   <li><%= @post.content %></li>
 </ul>
 
-<%= form_tag  new_comments_path %>
+<%= form_tag  new_comment_path %>
   <fieldset>
     <%= label_tag :comment %>
     <%= text_field_tag :comment %>
   </fieldset>
-<%= submit_tag "Done", comment %>
+<%= submit_tag "Done" %>
 
-
+<%= @comments.each do |comment| %>
+<% next unless comment.present? %>
+  <%= comment.img if comment.img %>
+  <%= @post.comments %>
+<% end %>
 
 
 <div class="controls">

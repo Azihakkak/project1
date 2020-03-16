@@ -8,13 +8,12 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.create comment_params
     @current_user.comments << comment
-    @post.comments << comment
     redirect_to post
   end
 
   def destroy
-    comment = Comment.find params[:id]
-    comment.destroy
+    @comment = Comment.find params[:id]
+    @comment.destroy
     redirect_to post
   end
 
