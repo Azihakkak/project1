@@ -12,8 +12,8 @@ before_action :check_for_login
 
   def create
     @post = Post.create post_params
-    @current_user.posts << post
-    redirect_to post
+    @current_user.posts << @post
+    redirect_to @post
   end
 
   def edit

@@ -3,7 +3,5 @@
   <%= f.text_field :content %>
   <%= f.label :img %>
   <%= f.text_field :img %>
-  <%= f.label :user_id %>
-  <%= f.select :user_id, User.pluck(:name, :id), :include_blank => true %>
-  <%= f.submit %>
+  <%= f.submit :Post %>
 <% end %>
