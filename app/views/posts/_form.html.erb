@@ -1,0 +1,9 @@
+<%= form_for @post do |f| %>
+  <%= f.label :content, :required => true, :autofocus => true %>
+  <%= f.text_field :content %>
+  <%= f.label :img %>
+  <%= f.text_field :img %>
+  <%= f.label :user_id %>
+  <%= f.select :user_id, User.pluck(:name, :id), :include_blank => true %>
+  <%= f.submit %>
+<% end %>
