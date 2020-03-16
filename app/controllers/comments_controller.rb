@@ -6,8 +6,9 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @comment = Comment.new comment_params
-    comment.save
+    @comment = Comment.create comment_params
+    @current_user.comments << comment
+    @post.comments << comment
     redirect_to post
   end
 

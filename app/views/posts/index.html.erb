@@ -2,7 +2,7 @@
 
 <%= @posts.each do |post| %>
 <%= link_to image_tag(post.img, :class => 'thumb', :alt => post.content), post %>
-<%= image_tag post.user.img %>
-<p><%= post.user.name %></p>
+<%= image_tag post.user.img if post.user %>
+<p><%= post.user.name if post.user %></p>
 <p><%= post.content %></p>
 <% end %>
