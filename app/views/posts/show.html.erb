@@ -10,12 +10,12 @@
   <li><%= @post.content %></li>
 </ul>
 
-<%= form_tag @post  %>
+<%= form_tag  new_comments_path %>
   <fieldset>
     <%= label_tag :comment %>
     <%= text_field_tag :comment %>
   </fieldset>
-<%= link_to submit_tag("Done"), new_comment_path %>
+<%= submit_tag "Done", comment %>
 
 
 
