@@ -6,6 +6,6 @@
   <%= link_to image_tag(post.img, :class => 'thumb', :alt => post.content), post if post.img.present? %>
 </div>
 <%= image_tag post.user.img if post.user.img.present? %>
-<%= link_to post.user.name,  %>
+<%= link_to post.user.name, post.user %>
 <p><%= link_to post.content, post if post.content.present? %></p>
 <% end %>
