@@ -7,25 +7,20 @@
     <%= link_to 'Sign in!', login_path %>
 </div>
 
-<% if flash[:error].present? %>
-  <h2><%= flash[:error] %></h2>
-<% end %>
-
-<%= form_tag new_user_path do %>
+<%= form_for @user do |f| %>
   <fieldset>
-    <%= label_tag :email %>
-    <%= email_field_tag :email %>
+    <%= f.label :email %>
+    <%= f.email_field :email, :required => true, :autofocus => true %>
   </fieldset>
 
   <fieldset>
-    <%= label_tag :password %>
-    <%= password_field_tag :password %>
+    <%= f.label :password %>
+    <%= f.password_field :password, :required => true %>
   </fieldset>
 
   <fieldset>
-    <%= label_tag :password_confirmation %>
-    <%= password_field_tag :password_confirmation %>
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation, :required => true %>
   </fieldset>
-
-  <%= submit_tag "Sign up" %>
-<% end %>
+  <%= f.submit %>
+  <% end %>
