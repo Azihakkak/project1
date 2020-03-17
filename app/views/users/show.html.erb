@@ -1,0 +1,16 @@
+<h2><%= @user.name %> Profile</h2>
+
+<%= image_tag @user.img %>
+<ul>
+  <li><%= @user.name %></li>
+  <li><%= @user.location %></li>
+</ul>
+
+<% @posts.each do |post| %>
+<ul>
+  <li><%= image_tag post.img %></li>
+  <li><%= post.content %></li>
+</ul>
+
+
+<% end %>
