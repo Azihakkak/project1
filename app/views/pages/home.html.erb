@@ -6,3 +6,26 @@
     <%= link_to 'Sign up!', new_user_path %>
     <%= link_to 'Sign in!', login_path %>
 </div>
+
+<% if flash[:error].present? %>
+  <h2><%= flash[:error] %></h2>
+<% end %>
+
+<%= form_tag new_user_path do %>
+  <fieldset>
+    <%= label_tag :email %>
+    <%= email_field_tag :email %>
+  </fieldset>
+
+  <fieldset>
+    <%= label_tag :password %>
+    <%= password_field_tag :password %>
+  </fieldset>
+
+  <fieldset>
+    <%= label_tag :password_confirmation %>
+    <%= password_field_tag :password_confirmation %>
+  </fieldset>
+
+  <%= submit_tag "Sign up" %>
+<% end %>
