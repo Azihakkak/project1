@@ -15,10 +15,8 @@
       <%= link_to "Home", root_path %>
       <% if @current_user.present? %>
       <%= link_to "My posts", user_path(@current_user.id) %>
-      <%= link_to "profile", user_path(@current_user.id) %>
       <%= link_to "posts", posts_path %>
       <%= link_to "New post", new_post_path %>
-      <%= link_to "comments", comments_path %>
       <%= link_to "Sign out #{ @current_user.email }", login_path, :method => 'delete' %>
       <% else %>
         <%= link_to "Sign up", new_user_path %>
