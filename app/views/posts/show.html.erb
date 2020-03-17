@@ -23,14 +23,10 @@
   <li><%= comment.img if comment.img.present? %></li>
   <li><%= comment.content if comment.content.present? %></li>
   <div class="comment_controls">
-    <%= link_to "Delete comment", @comment, :method => 'delete', :data => { :confirm => 'Are you sure?' } %>
+    <%= link_to "Delete comment", comment, :method => 'delete', :data => { :confirm => 'Are you sure?' } %>
   </div>
   <% end %>
 </ul>
-
-
-
-
 
 
 <div class="controls">
