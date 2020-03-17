@@ -6,6 +6,7 @@
 </div>
 
 <%= image_tag @post.img %>
+<%= @post.content %>
 
 <%= form_for Comment.new do |f| %>
 <%= f.hidden_field :post_id, :value => @post.id %>
