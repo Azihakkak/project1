@@ -7,7 +7,7 @@
 <% end %>
 
 
-<%= form_for @user do |f| %>
+<%= form_for(@user, :html => {:multipart => true}) do |f| %>
   <fieldset>
     <%= f.label :email %>
     <%= f.email_field :email, :required => true, :autofocus => true %>
@@ -35,7 +35,7 @@
 
   <fieldset>
     <%= f.label :img %>
-    <%= f.url_field :img, :required => true %>
+    <%= f.cl_image_upload :img, :required => true %>
   </fieldset>
 
   <%= f.submit %>

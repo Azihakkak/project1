@@ -7,7 +7,10 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new user_params
-    if @user.save
+    if params[:file].present?
+      req = Cloudinary::Uploader.upload(params[:file])
+      @user.img = req["public_id"] # this is an URL
+      @user.save
       session[:user_id] = @user.id
       redirect_to posts_path
     else
@@ -21,7 +24,12 @@ class UsersController < ApplicationController
 
   def update
     user = User.find params[:id]
-    user.update user_params
+    if params[:file].present?
+      req = Cloudinary::Uploader.upload(params[:file])
+      user.img = req["public_id"]
+    end
+    user.update_attributes(post_params)
+    user.save
     redirect_to user
   end
 
