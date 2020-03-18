@@ -4,7 +4,7 @@
     <title>Project1</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <%= cloudinary_js_config %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/kognise/water.css@latest/dist/light.min.css">
@@ -17,7 +17,7 @@
       <%= link_to "My posts", user_path(@current_user.id) %>
       <%= link_to "posts", posts_path %>
       <%= link_to "New post", new_post_path %>
-      <%= link_to "Sign out #{ @current_user.email }", login_path, :method => 'delete' %>
+      <%= link_to "Sign out #{ @current_user.name }", login_path, :method => 'delete' %>
       <% else %>
         <%= link_to "Sign up", new_user_path %>
         <%= link_to "Sign in", login_path %>

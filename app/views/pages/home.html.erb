@@ -2,25 +2,8 @@
 <h1>INKT</h1>
 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
 
+
 <div>
-    <%= link_to 'Sign up!', new_user_path %>
-    <%= link_to 'Sign in!', login_path %>
+    <%= link_to 'Sign up!', new_user_path unless @current_user.present? %>
+    <%= link_to 'Sign in!', login_path unless @current_user.present? %>
 </div>
-
-<%= form_for @user do |f| %>
-  <fieldset>
-    <%= f.label :email %>
-    <%= f.email_field :email, :required => true, :autofocus => true %>
-  </fieldset>
-
-  <fieldset>
-    <%= f.label :password %>
-    <%= f.password_field :password, :required => true %>
-  </fieldset>
-
-  <fieldset>
-    <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation, :required => true %>
-  </fieldset>
-  <%= f.submit %>
-  <% end %>

@@ -10,7 +10,7 @@
 
 <% @posts.each do |post| %>
 <ul>
-  <li><%= image_tag post.img %></li>
+  <li><%= cl_image_tag post.img %></li>
   <li><%= post.content %></li>
 </ul>
 

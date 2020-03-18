@@ -5,7 +5,7 @@
   <%= @post.user.name %>
 </div>
 
-<%= image_tag @post.img %>
+<%= cl_image_tag @post.img %>
 <%= @post.content %>
 
 <%= form_for Comment.new do |f| %>
@@ -13,6 +13,10 @@
   <fieldset>
     <%= f.label :content, "Comments" %>
     <%= f.text_field :content %>
+  </fieldset>
+  <fieldset>
+    <%= f.label :image %>
+    <%= f.cl_image_upload :img %>
   </fieldset>
 <%= f.submit %>
 <% end %>

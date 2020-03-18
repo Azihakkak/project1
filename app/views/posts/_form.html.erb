@@ -1,7 +1,7 @@
-<%= form_for @post do |f| %>
+<%= form_for(@post, :html => {:multipart => true}) do |f| %>
   <%= f.label :content, :required => true, :autofocus => true %>
   <%= f.text_field :content %>
-  <%= f.label :img %>
-  <%= f.text_field :img %>
+  <%= f.label :image %>
+  <%= f.cl_image_upload :image %>
   <%= f.submit %>
 <% end %>
