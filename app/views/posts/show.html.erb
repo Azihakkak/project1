@@ -1,14 +1,14 @@
-<h1><%= @post.user.name %> Posts</h1>
+<h1><%= @post.user.name %>'s Post</h1>
 
-<%= cl_image_tag @post.user.img, :class => 'profile_pic', :alt => @post.user.name %>
+<%= cl_image_tag @post.user.img, :class => 'profile_pic', :alt => @post.user.name, :width=>100, :height=>100, :radius=>"20" %>
 <div>
   <%= @post.user.name %>
 </div>
 
-<%= cl_image_tag @post.img %>
+<%= cl_image_tag @post.img, :width=>400, :height=>400, :crop=>"scale" %>
 <%= @post.content %>
 
-<%= form_for Comment.new do |f| %>
+<%= form_for(Comment.new, :html => {:multipart => true}) do |f| %>
   <%= f.hidden_field :post_id, :value => @post.id %>
     <fieldset>
       <%= f.label :content, "Comments" %>
@@ -25,7 +25,7 @@
 
   <% @comments.each do |comment| %>
   <% next unless comment.present? %>
-  <%= cl_image_tag comment.img if comment.img.present? %>
+  <%= cl_image_tag comment.img, :width=>200, :height=>200, :crop=>"scale" if comment.img.present? %>
   <li><%= comment.content if comment.content.present? %></li>
   <div class="comment_controls">
     <%= link_to "Delete comment", comment, :method => 'delete', :data => { :confirm => 'Are you sure?' } %>

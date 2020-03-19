@@ -11,19 +11,33 @@
   </head>
 
   <body>
-    <nav>
-      <%= link_to "Home", root_path %>
-      <% if @current_user.present? %>
-      <%= link_to "My posts", user_path(@current_user.id) %>
-      <%= link_to "posts", posts_path %>
-      <%= link_to "New post", new_post_path %>
-      <%= link_to "Sign out #{ @current_user.name }", login_path, :method => 'delete' %>
-      <% else %>
-        <%= link_to "Sign up", new_user_path %>
-        <%= link_to "Sign in", login_path %>
 
-      <% end %>
-    </nav>
+        <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
+          <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+        <li class="nav-item active"><%= link_to "Home", root_path, :class => "nav-link" %></li>
+        <% if @current_user.present? %>
+        <li class="nav-item"><%= link_to "My posts", user_path(@current_user.id), :class => "nav-link" %></li>
+        <li class="nav-item"><%= link_to "All posts", posts_path, :class => "nav-link" %></li>
+        <li class="nav-item"><%= link_to "New post", new_post_path, :class => "nav-link" %></li>
+        <li class="nav-item"><%= link_to "Sign out #{ @current_user.name }", login_path, :method => 'delete', :class => "nav-link" %></li>
+        <% else %>
+        <li class="nav-item"><%= link_to "Sign up", new_user_path, :class => "nav-link" %></li>
+        <li class="nav-item"><%= link_to "Sign in", login_path, :class => "nav-link" %></li>
+        <% end %>
+          </ul>
+        </div>
+      </div>
+     </nav>
+
     <%= yield %>
+    <footer class="footer">
+      <small>
+        'Project 1' for <a href="http://www.generalassemb.ly" target="_blank">General Assembly</a> Sydney's Web Development Immersive 36 - by Azadeh Hakkak.
+      </small>
   </body>
 </html>

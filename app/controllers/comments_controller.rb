@@ -7,6 +7,11 @@ class CommentsController < ApplicationController
 
   def create
     comment = Comment.create comment_params
+    if params[:file].present?
+      req = Cloudinary::Uploader.upload(params[:file])
+      comment.img = req["public_id"]
+      comment.save
+    end
     redirect_to comment.post
   end
 
@@ -15,7 +20,6 @@ class CommentsController < ApplicationController
     @comment.destroy
     redirect_to @comment.post
   end
-
 
   private
   def comment_params

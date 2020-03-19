@@ -8,35 +8,51 @@
 
 
 <%= form_for(@user, :html => {:multipart => true}) do |f| %>
-  <fieldset>
-    <%= f.label :email %>
-    <%= f.email_field :email, :required => true, :autofocus => true %>
-  </fieldset>
+  <div class="form-group row">
+    <%= f.label :email, :class => "col-sm-2 col-form-label" %>
+    <div class="col-sm-8">
+    <%= f.email_field :email, :required => true, :autofocus => true, :class => 'form-control' %>
+    </div>
+  </div>
 
-  <fieldset>
-    <%= f.label :password %>
-    <%= f.password_field :password, :required => true %>
-  </fieldset>
+  <div class="form-group row">
+    <%= f.label :password, :class => "col-sm-2 col-form-label" %>
+    <div class="col-sm-8">
+    <%= f.password_field :password, :required => true, :class => 'form-control' %>
+    </div>
+  </div>
 
-  <fieldset>
-    <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation, :required => true %>
-  </fieldset>
+  <div class="form-group row">
+    <%= f.label :password_confirmation, :class => "col-sm-2 col-form-label" %>
+    <div class="col-sm-8">
+    <%= f.password_field :password_confirmation, :required => true, :class => 'form-control' %>
+    </div>
+  </div>
 
-  <fieldset>
-    <%= f.label :name %>
-    <%= f.text_field :name, :required => true %>
-  </fieldset>
+  <div class="form-group row">
+    <%= f.label :name, :class => "col-sm-2 col-form-label" %>
+    <div class="col-sm-8">
+    <%= f.text_field :name, :required => true, :class => 'form-control' %>
+    </div>
+  </div>
 
-  <fieldset>
-    <%= f.label :location %>
-    <%= f.text_field :location, :required => true %>
-  </fieldset>
+  <div class="form-group row">
+    <%= f.label :location, :class => "col-sm-2 col-form-label" %>
+    <div class="col-sm-8">
+    <%= f.text_field :location, :required => true, :class => 'form-control' %>
+    </div>
+  </div>
 
-  <fieldset>
-    <%= f.label :img %>
-    <%= f.cl_image_upload :img, :required => true %>
-  </fieldset>
+  <div class="form-group row">
+    <%= f.label :img, :class => "col-sm-2 col-form-label" %>
+    <div class="col-sm-8">
+    <%= f.cl_image_upload :img, :required => true, :class => 'form-control' %>
+    </div>
+  </div>
+<div class="row justify-content-center">
+  <div class="col col-auto ">
+    <%= f.submit "Submit", :class => 'btn btn-primary btn-lg' %>
+  </div>
+</div>
 
-  <%= f.submit %>
 <% end %>

@@ -48,7 +48,6 @@ before_action :check_for_login
   end
 
 
-
   private
   def post_params
     params.require(:post).permit(:content, :user_id)

@@ -1,6 +1,6 @@
 <h2><%= @user.name %> Posts</h2>
 
-<%= cl_image_tag @user.img %>
+<%= cl_image_tag @user.img, :width=>200, :height=>200 %>
 
 <ul>
   <li><%= @user.name %></li>
@@ -10,9 +10,8 @@
 
 <% @posts.each do |post| %>
 <ul>
-  <li><%= cl_image_tag post.img %></li>
+  <li><%= cl_image_tag post.img, :width=>250, :height=>250, :crop=>"scale" %></li>
   <li><%= post.content %></li>
 </ul>
-
 
 <% end %>
