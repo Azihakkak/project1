@@ -1,40 +1,91 @@
-<h1><%= @post.user.name %>'s Post</h1>
+<hr class="my-4">
+<div class="container-fluid">
+  <div class="row welcome text-center">
+    <div class="col-12">
+      <h1 class="display-4"><%= @post.user.name %>'s Post</h1>
+    </div>
+  </div>
+  <hr class="my-4">
 
-<%= cl_image_tag @post.user.img, :class => 'profile_pic', :alt => @post.user.name, :width=>100, :height=>100, :radius=>"20" %>
-<div>
-  <%= @post.user.name %>
+<div class="container-fluid">
+  <div class="row justify-content-center">
+    <div class="col col-auto">
+      <%= cl_image_tag @post.user.img, :class => 'profile_pic', :alt => @post.user.name, :width=>100, :height=>100 %>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col col-auto">
+      <%= link_to @post.user.name, @post.user, :class => "text-dark text-decoration-none" %>
+    </div>
+  </div>
+
+  <div class="row justify-content-center">
+    <div class="col col-auto">
+      <%= cl_image_tag @post.img, :width=>400, :height=>400, :crop=>"scale" %>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col col-auto">
+      <p class="lead"><%= @post.content %></p>
+    </div>
+  </div>
+</div>
 </div>
 
-<%= cl_image_tag @post.img, :width=>400, :height=>400, :crop=>"scale" %>
-<%= @post.content %>
+<div class="row justify-content-center">
+  <div class="col col-auto">
+  <div class="lead">
+    <%= link_to "Edit post", edit_post_path(@post), :class => "btn btn-outline-secondary btn-lg" %>
+    <%= link_to "Delete post", @post, :method => 'delete', :data => { :confirm => 'Are you sure?' }, :class => "btn btn-outline-secondary btn-lg" %>
+
+  </div>
+</div>
+</div>
+
+
+<hr class="my-4">
+
+
 
 <%= form_for(Comment.new, :html => {:multipart => true}) do |f| %>
   <%= f.hidden_field :post_id, :value => @post.id %>
-    <fieldset>
-      <%= f.label :content, "Comments" %>
-      <%= f.text_field :content %>
-    </fieldset>
-    <fieldset>
-      <%= f.label :image %>
-      <%= f.cl_image_upload :img %>
-    </fieldset>
-  <%= f.submit %>
+    <div class="form-group">
+      <div class="col-6">
+        <%= f.text_field :content, :placeholder => 'Comment', :class => 'form-control'%>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-8">
+        <%= f.cl_image_upload :img %>
+      </div>
+    </div>
+
+    <div class="form-group ">
+      <div class="col-12">
+        <%= f.submit :class => 'btn btn-outline-secondary' %>
+      </div>
+    </div>
 <% end %>
 
-<ul>
-
-  <% @comments.each do |comment| %>
-  <% next unless comment.present? %>
-  <%= cl_image_tag comment.img, :width=>200, :height=>200, :crop=>"scale" if comment.img.present? %>
-  <li><%= comment.content if comment.content.present? %></li>
-  <div class="comment_controls">
-    <%= link_to "Delete comment", comment, :method => 'delete', :data => { :confirm => 'Are you sure?' } %>
+<div class="container-fluid padding">
+  <div class="row padding" >
+    <% @comments.each do |comment| %>
+    <% next unless comment.present? %>
+    <div class="col-12">
+      <div>
+        <%= cl_image_tag comment.img, :width=>200, :height=>200, :crop=>"scale" if comment.img.present? %>
+      </div>
+    </div>
+    <div class="col-12">
+      <div>
+         <%= cl_image_tag @current_user.img, :width=>30, :height=>30, :class => "user-image" if @current_user.img.present? %> <%= @current_user.name %> <p class="lead"><%= comment.content if comment.content.present? %></p>
+      </div>
+    </div>
+    <div class="col-12">
+      <div class="comment_controls">
+        <%= link_to "Delete comment", comment, :method => 'delete', :data => { :confirm => 'Are you sure?' }, :class => 'btn btn-light btn-sm' %>
+      </div>
+    </div>
+      <% end %>
   </div>
-  <% end %>
-</ul>
-
-
-<div class="controls">
-  <%= link_to "Edit post", edit_post_path(@post) %>
-  <%= link_to "Delete post", @post, :method => 'delete', :data => { :confirm => 'Are you sure?' } %>
 </div>

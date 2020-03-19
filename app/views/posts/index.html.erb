@@ -1,13 +1,31 @@
+<hr class="my-4">
+<div class="container-fluid">
+  <div class="row welcome text-center">
+    <div class="col-12">
+      <h1 class="display-4">All posts</h1>
+    </div>
+  </div>
+  <hr class="my-4">
+</div>
 
 
-<h2>All posts</h2>
-
+<div class="container-fluid padding">
+  <div class="row text-center padding">
 <% @posts.each do |post| %>
 <% next unless post.user.present? %>
-<div>
-  <%= link_to cl_image_tag(post.img, :class => 'thumb', :alt => post.content, :width=>200, :height=>200, :crop=>"scale"), post if post.img.present? %>
-</div>
-<%= cl_image_tag post.user.img, :width=>30, :height=>30, :radius=>"max" if post.user.img.present? %>
-<%= link_to post.user.name, post.user %>
-<p><%= link_to post.content, post if post.content.present? %></p>
+    <div class="col-xs-12 col-sm-6 col-md-4 ">
+      <div>
+        <%= link_to cl_image_tag(post.img, :class => 'thumb', :alt => post.content, :width=>200, :height=>200, :crop=>"scale"), post if post.img.present? %>
+    </div>
+    <div>
+    <%= cl_image_tag post.user.img, :width=>30, :height=>30, :class => "user-image" if post.user.img.present? %><p><%= post.user.name %></p>
+    </div>
+    <div class="nav-item">
+      <div class="lead">
+        <%= link_to post.content, post, :class=>"nav-link",:class => "text-dark text-decoration-none" if post.content.present? %>
+      </div>
+    </div>
+  </div>
 <% end %>
+  </div>
+</div>

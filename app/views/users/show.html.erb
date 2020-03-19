@@ -1,17 +1,52 @@
-<h2><%= @user.name %> Posts</h2>
-
-<%= cl_image_tag @user.img, :width=>200, :height=>200 %>
-
-<ul>
-  <li><%= @user.name %></li>
-  <li><%= @user.location %></li>
-</ul>
-<%= link_to 'Update Profile', edit_user_path  %>
-
-<% @posts.each do |post| %>
-<ul>
-  <li><%= cl_image_tag post.img, :width=>250, :height=>250, :crop=>"scale" %></li>
-  <li><%= post.content %></li>
-</ul>
-
-<% end %>
+<hr class="my-4">
+<div class="container-fluid">
+  <div class="row welcome text-center">
+    <div class="col-12">
+      <h1 class="display-4"><%= @user.name %>'s Posts</h1>
+    </div>
+  </div>
+  <hr class="my-4">
+</div>
+<div class="container-fluid">
+  <div class="row justify-content-center">
+    <div class="col col-auto">
+      <%= cl_image_tag @user.img, :width=>200, :height=>200, :class => 'user-profile-pic' %>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col col-auto">
+      <div class="lead">
+        <%= @user.name %>
+      </div>
+    </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col col-auto">
+      <div class="lead">
+        <%= @user.location %>
+      </div>
+    </div>
+  </div>
+    <div class="row justify-content-center">
+      <div class="col col-auto">
+      <div class="lead">
+        <%= link_to 'Update Profile', edit_user_path, :class => "btn btn-outline-secondary btn-lg" %>
+      </div>
+    </div>
+  </div>
+</div>
+<hr class="my-4">
+<div class="container-fluid padding">
+  <div class="row text-center padding">
+    <% @posts.each do |post| %>
+    <div class="col-xs-12 col-sm-6 col-md-4">
+      <div>
+        <%= cl_image_tag post.img, :width=>250, :height=>250, :crop=>"scale" %>
+      </div>
+      <div>
+        <p><%= post.content %></p>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>

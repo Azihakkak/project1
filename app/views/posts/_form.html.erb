@@ -1,7 +1,32 @@
-<%= form_for(@post, :html => {:multipart => true}) do |f| %>
-  <%= f.label :content, :required => true, :autofocus => true %>
-  <%= f.text_field :content %>
-  <%= f.label :image %>
-  <%= f.cl_image_upload :img %>
-  <%= f.submit %>
-<% end %>
+
+
+
+
+
+<div class="container-fluid">
+  <div class="row justify-content-center">
+    <%= form_for(@post, :html => {:multipart => true}) do |f| %>
+    <div class="form-group">
+      <div class="text-center">
+        <%= f.label :Comment %>
+      </div>
+      <div class="col col-auto">
+        <%= f.text_field :content, :required => true, :autofocus => true, :class => 'form-control' %>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="text-center">
+        <%= f.label :image %>
+      </div>
+      <div class="col col-auto">
+        <%= f.cl_image_upload :img , :class => 'form-control'%>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col col-auto ">
+        <%= f.submit "Submit", :class => 'btn btn-primary btn-lg' %>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>

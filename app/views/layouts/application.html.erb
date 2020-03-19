@@ -10,7 +10,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/kognise/water.css@latest/dist/light.min.css">
   </head>
 
-  <body>
+  <body id="container">
+    <header>
 
         <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
           <div class="container-fluid">
@@ -33,11 +34,19 @@
         </div>
       </div>
      </nav>
-
+</header>
     <%= yield %>
+
     <footer class="footer">
-      <small>
-        'Project 1' for <a href="http://www.generalassemb.ly" target="_blank">General Assembly</a> Sydney's Web Development Immersive 36 - by Azadeh Hakkak.
-      </small>
+    <div class="container-fluid padding">
+      <div class="row text-center">
+        <div class="col-12">
+            <small>
+    'Project 1' for <a href="http://www.generalassemb.ly" target="_blank">General Assembly</a> Sydney's Web Development Immersive 26 - by <a href="http://www.taryn.codes" target="_blank">Taryn Ewens.</a>
+            </small>
+          </div>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
