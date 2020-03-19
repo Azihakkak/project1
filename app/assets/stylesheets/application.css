@@ -17,8 +17,8 @@
  html, body {
    height: 100%;
    width: 100%;
-   color: #222;
  }
+
  .navbar {
    padding: 0.8rem;
  }
@@ -27,4 +27,16 @@
  }
  .nav-link {
    font-size: 1.1em !important;
+ }
+ .footer {
+   color: #b9b9b9;
+   border-top: 1px solid #d5d5d5;
+   width: 100%;
+   padding-top: 0.5rem;
+   margin-top: 0.8rem;
+   margin-bottom: 0.8rem;
+ }
+ .footer-link {
+   color: #b9b9b9;
+   text-decoration: none;
  }

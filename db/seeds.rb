@@ -1,7 +1,7 @@
 User.destroy_all
-u1 = User.create :email => 'azi@ga.co', :password => 'chicken', :name => 'Azi', :location => 'Sydney-Australia', :img => 'https://www.iconninja.com/files/659/862/369/owl-icon.png'
-u2 = User.create :email => 'josh@gmail.com', :password => 'chiken', :name => 'Josh', :location => 'Sydney-Australia', :img => 'https://i.pinimg.com/originals/6b/98/fe/6b98fe4a78e50a37f245932633771bb1.jpg'
-u3 = User.create :email => 'mitch@gmail.com', :password => 'chicken', :name => 'Mitch', :location => 'Sydney-Australia', :img => 'https://image.freepik.com/foto-gratis/hermosa-textura-colorida-pintura-pared-fondo-abstracto-textura-pintura-pared_24076-192.jpg'
+u1 = User.create :email => 'azi@ga.co', :password => 'chicken', :name => 'Azi', :location => 'Sydney-Australia', :img => 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/gettyimages-1057607370.jpg'
+u2 = User.create :email => 'josh@gmail.com', :password => 'chiken', :name => 'Josh', :location => 'Sydney-Australia', :img => 'https://img.theculturetrip.com/768x432/wp-content/uploads/2018/05/people-3292901_1920.jpg'
+u3 = User.create :email => 'mitch@gmail.com', :password => 'chicken', :name => 'Mitch', :location => 'Sydney-Australia', :img => 'https://tattoodo-mobile-app.imgix.net/images/news_uploads/legacy/0/110466.jpg'
 puts "#{ User.count } users created."
 
 Post.destroy_all
