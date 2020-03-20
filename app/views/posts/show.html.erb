@@ -18,7 +18,6 @@
       <%= link_to @post.user.name, @post.user, :class => "text-dark text-decoration-none" %>
     </div>
   </div>
-
   <div class="row justify-content-center">
     <div class="col col-auto">
       <%= cl_image_tag @post.img, :width=>400, :height=>400, :crop=>"scale" %>
@@ -42,9 +41,7 @@
 </div>
 </div>
 
-
 <hr class="my-4">
-
 
 
 <%= form_for(Comment.new, :html => {:multipart => true}) do |f| %>
