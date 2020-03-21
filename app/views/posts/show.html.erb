@@ -34,8 +34,8 @@
 <div class="row justify-content-center">
   <div class="col col-auto">
   <div class="lead">
-    <%= link_to "Edit post", edit_post_path(@post), :class => "btn btn-outline-secondary btn-lg" %>
-    <%= link_to "Delete post", @post, :method => 'delete', :data => { :confirm => 'Are you sure?' }, :class => "btn btn-outline-secondary btn-lg" %>
+    <%= link_to "Edit post", edit_post_path(@post), :class => "btn btn-outline-secondary btn-lg" if @post.user.id == @current_user.id %>
+    <%= link_to "Delete post", @post, :method => 'delete', :data => { :confirm => 'Are you sure?' }, :class => "btn btn-outline-secondary btn-lg" if @post.user.id == @current_user.id %>
 
   </div>
 </div>
@@ -75,12 +75,12 @@
     </div>
     <div class="col-12">
       <div>
-         <%= cl_image_tag @current_user.img, :width=>30, :height=>30, :class => "user-image" if @current_user.img.present? %> <%= @current_user.name %> <p class="lead"><%= comment.content if comment.content.present? %></p>
+        <%= cl_image_tag comment.user.img, :width=>30, :height=>30, :class => "user-image" if comment.user.img.present? %><%= comment.user.name %> <p class="lead"><%= comment.content if comment.content.present? %></p>
       </div>
     </div>
     <div class="col-12">
       <div class="comment_controls">
-        <%= link_to "Delete comment", comment, :method => 'delete', :data => { :confirm => 'Are you sure?' }, :class => 'btn btn-light btn-sm' %>
+        <%= link_to "Delete comment", comment, :method => 'delete', :data => { :confirm => 'Are you sure?' }, :class => 'btn btn-light btn-sm' if comment.user.id == @current_user.id || @current_user.id == @post.user.id %>
       </div>
     </div>
       <% end %>
