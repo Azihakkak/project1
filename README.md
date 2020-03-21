@@ -5,7 +5,7 @@ This app is designed to help tattoo artists to connect to each other from all ov
 
 ### Live Demo Link
 -----------------------------------------------------
-
+https://deployerinkt.herokuapp.com/
 
 
 ### Project Description
