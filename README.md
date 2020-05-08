@@ -1,4 +1,4 @@
-# Project1
+# Project1 / Inkt
 =============
 
 This app is designed to help tattoo artists to connect to each other from all over the world to share their ideas and talents and help each other in time of need!
